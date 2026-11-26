@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN" class="booting">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#087f88" />
+    <meta name="description" content="一座属于你的海景小岛。环岛观景、走上沙滩，在海风里放慢时间。" />
+    <title>栖屿 · TIDELINE — 一座岛，一整个慢下来。</title>
+    <!-- 首屏样式随 HTML 到达，模块与完整样式未加载时也不暴露页面或 SVG。 -->
+    <style>html,body{background:#0d515a;width:100%;height:100%;margin:0;overflow:hidden}[hidden]{display:none!important}html.booting body>:not(#loading):not(#fatal):not(script){visibility:hidden!important}#loading{z-index:30;color:#fff9e6;letter-spacing:3px;background:radial-gradient(at 50% 40%,#438e91,#145e68 58%,#0d424e);flex-direction:column;justify-content:center;align-items:center;gap:22px;font:12px/1.8 Microsoft YaHei,sans-serif;transition:opacity .8s;display:flex;position:fixed;inset:0}.loading-mark{letter-spacing:12px;margin-left:12px;font-family:serif;font-size:42px}.loading-line{background:#ffffff30;width:100px;height:1px;overflow:hidden}.loading-line:after{content:"";background:#f4e1b2;width:45%;height:100%;animation:1.6s ease-in-out infinite arrival;display:block}@keyframes arrival{0%{transform:translate(-100%)}to{transform:translate(330%)}}#fatal{z-index:40;color:#255c51;text-align:center;background:#dceee5;place-content:center;padding:24px;font:14px/1.8 Microsoft YaHei,sans-serif;display:grid;position:fixed;inset:0}</style>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%230c7774'/%3E%3Cpath d='M12 38q10-12 20 0t20 0M12 47q10-12 20 0t20 0' fill='none' stroke='%23fff6df' stroke-width='4'/%3E%3Ccircle cx='40' cy='19' r='7' fill='%23e9d8a1'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="./assets/index-BTgijIFt.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-YpMDQ-BD.css">
+  </head>
+  <body>
+    <div id="scene" aria-label="可交互的三维海景小岛"></div>
+    <div id="loading"><div class="loading-mark">栖屿</div><span>正在赴一场海的约定</span><div class="loading-line"></div></div>
+    <div id="fatal" hidden><h2>海岛暂时未能载入</h2><p>请使用支持 WebGL 2 的浏览器，并打开硬件加速。</p><button onclick="location.reload()">重新载入</button></div>
+    <main id="interface">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="栖屿首页"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M4 22q7-9 14 0t14 0M4 29q7-9 14 0t14 0"/><circle cx="25" cy="9" r="4"/></svg><strong>栖屿<span>TIDELINE</span></strong></a>
+        <div class="top-note">给自己，一小段无所事事的时光。</div>
+        <div class="top-actions"><button id="sound" class="quiet-button" aria-pressed="false"><span class="sound-icon">♫</span><span id="sound-label">环境声 关</span></button><button id="capture" class="icon-button" title="保存此刻" aria-label="保存当前风景"><svg viewBox="0 0 24 24"><path d="M3 7h4l2-3h6l2 3h4v13H3Z"/><circle cx="12" cy="13" r="4"/></svg></button><button id="toggle-ui" class="icon-button" title="隐藏界面 · H" aria-label="隐藏界面"><svg viewBox="0 0 24 24"><path d="M3 8V3h5m8 0h5v5M3 16v5h5m8 0h5v-5"/></svg></button></div>
+      </header>
+      <section class="intro"><div class="eyebrow"><span></span> YOUR LITTLE ESCAPE</div><h1>把时间，<br/>留在海边。</h1><p>一间木屋，一片蔚蓝。<br/>今天，只需要听海。</p><button id="discover" class="discover-button">去岛上走走 <span>↗</span></button></section>
+      <aside class="scene-label"><span class="label-line"></span><div><strong>珊瑚湾 · Coral Cay</strong><span>一座岛，一整个慢下来。</span></div></aside>
+      <div class="crosshair" hidden></div>
+      <section id="environment" class="environment" hidden aria-label="风景设置">
+        <div class="panel-title">此刻的海 <span>MAKE IT YOURS</span></div>
+        <div class="time-choices"><button data-time="morning" aria-pressed="false">清晨<span>08:00</span></button><button data-time="noon" class="selected" aria-pressed="true">晴午<span>12:30</span></button><button data-time="sunset" aria-pressed="false">日落<span>17:40</span></button><button data-time="night" aria-pressed="false">夜晚<span>21:30</span></button></div>
+        <div class="setting-label">天气</div>
+        <div class="weather-choices" role="group" aria-label="天气选择"><button data-weather="clear" class="selected" aria-pressed="true">晴朗<span>天光正好</span></button><button data-weather="rain" aria-pressed="false">雨天<span>听雨落下</span></button><button data-weather="storm" aria-pressed="false">雷暴<span>远雷阵雨</span></button><button data-weather="gale" aria-pressed="false">狂风<span>风起浪涌</span></button></div>
+        <label class="range-label" for="breeze">海风 <span id="breeze-label">清劲</span></label><input id="breeze" type="range" min="0" max="2" value="1.6" step="0.05"/><label class="quality-label">画质<select id="quality"><option value="1">流畅</option><option value="1.5" selected>均衡</option><option value="2">精细</option></select></label>
+      </section>
+      <footer class="bottom-area"><div class="location"><span class="location-dot"></span><span>04°17′ N &nbsp; 73°30′ E<small>想象之境 · 无需抵达</small></span></div><div class="controls-stack"><nav class="mode-control" aria-label="探索模式"><button id="orbit-mode" class="active"><svg viewBox="0 0 20 20"><ellipse cx="10" cy="10" rx="8" ry="4" transform="rotate(-25 10 10)"/><circle cx="10" cy="10" r="2"/></svg>环岛观景</button><button id="walk-mode"><svg viewBox="0 0 20 20"><circle cx="11" cy="3" r="1.5"/><path d="m8 19 2-6 3 5m-8-8 4-4 3 1 3 4m-5-5-1 7"/></svg>上岛漫步</button><span class="control-divider"></span><button id="environment-toggle" title="调整时间、天气与海风" aria-expanded="false"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="3"/><path d="M10 1v2m0 14v2M1 10h2m14 0h2M4 4l1.5 1.5m9 9L16 16M4 16l1.5-1.5m9-9L16 4"/></svg><span id="time-label">晴午</span></button></nav><p id="hint" class="control-hint">拖动环绕 · 滚轮拉近 · 向下拖入水中</p></div><div class="weather"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="3"/><path d="M10 1v2m0 14v2M1 10h2m14 0h2M4 4l1 1m10 10 1 1M4 16l1-1m10-10 1-1"/></svg><span>28°<small id="weather-label">晴朗 · 宜发呆</small></span></div></footer>
+    </main>
+    <button id="restore-ui" hidden>显示界面 · H</button><div id="toast" role="status"></div><button id="walk-resume" hidden>点击继续漫步 <span>WASD 移动 · 鼠标看向四周 · Esc 释放鼠标</span></button><div id="touch-walk" hidden><button data-move="forward" aria-label="向前">↑</button><button data-move="left" aria-label="向左">←</button><button data-move="backward" aria-label="向后">↓</button><button data-move="right" aria-label="向右">→</button></div>
+  </body>
+</html>
+
