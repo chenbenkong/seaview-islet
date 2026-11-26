@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#087f88" />
     <meta name="description" content="一座属于你的海景小岛。环岛观景、走上沙滩，在海风里放慢时间。" />
-    <title>栖屿 · TIDELINE — 一座岛，一整个慢下来。</title>
+    <title>屿光 · ISLAND TIME — 一座岛，一整个慢下来。</title>
     <!-- 首屏样式随 HTML 到达，模块与完整样式未加载时也不暴露页面或 SVG。 -->
     <style>html,body{background:#0d515a;width:100%;height:100%;margin:0;overflow:hidden}[hidden]{display:none!important}html.booting body>:not(#loading):not(#fatal):not(script){visibility:hidden!important}#loading{z-index:30;color:#fff9e6;letter-spacing:3px;background:radial-gradient(at 50% 40%,#438e91,#145e68 58%,#0d424e);flex-direction:column;justify-content:center;align-items:center;gap:22px;font:12px/1.8 Microsoft YaHei,sans-serif;transition:opacity .8s;display:flex;position:fixed;inset:0}.loading-mark{letter-spacing:12px;margin-left:12px;font-family:serif;font-size:42px}.loading-line{background:#ffffff30;width:100px;height:1px;overflow:hidden}.loading-line:after{content:"";background:#f4e1b2;width:45%;height:100%;animation:1.6s ease-in-out infinite arrival;display:block}@keyframes arrival{0%{transform:translate(-100%)}to{transform:translate(330%)}}#fatal{z-index:40;color:#255c51;text-align:center;background:#dceee5;place-content:center;padding:24px;font:14px/1.8 Microsoft YaHei,sans-serif;display:grid;position:fixed;inset:0}</style>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%230c7774'/%3E%3Cpath d='M12 38q10-12 20 0t20 0M12 47q10-12 20 0t20 0' fill='none' stroke='%23fff6df' stroke-width='4'/%3E%3Ccircle cx='40' cy='19' r='7' fill='%23e9d8a1'/%3E%3C/svg%3E" />
@@ -14,11 +14,11 @@
   </head>
   <body>
     <div id="scene" aria-label="可交互的三维海景小岛"></div>
-    <div id="loading"><div class="loading-mark">栖屿</div><span>正在赴一场海的约定</span><div class="loading-line"></div></div>
+    <div id="loading"><div class="loading-mark">屿光</div><span>正在赴一场海的约定</span><div class="loading-line"></div></div>
     <div id="fatal" hidden><h2>海岛暂时未能载入</h2><p>请使用支持 WebGL 2 的浏览器，并打开硬件加速。</p><button onclick="location.reload()">重新载入</button></div>
     <main id="interface">
       <header class="topbar">
-        <a class="brand" href="./" aria-label="栖屿首页"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M4 22q7-9 14 0t14 0M4 29q7-9 14 0t14 0"/><circle cx="25" cy="9" r="4"/></svg><strong>栖屿<span>TIDELINE</span></strong></a>
+        <a class="brand" href="./" aria-label="屿光首页"><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M4 22q7-9 14 0t14 0M4 29q7-9 14 0t14 0"/><circle cx="25" cy="9" r="4"/></svg><strong>屿光<span>ISLAND TIME</span></strong></a>
         <div class="top-note">给自己，一小段无所事事的时光。</div>
         <div class="top-actions"><button id="sound" class="quiet-button" aria-pressed="false"><span class="sound-icon">♫</span><span id="sound-label">环境声 关</span></button><button id="capture" class="icon-button" title="保存此刻" aria-label="保存当前风景"><svg viewBox="0 0 24 24"><path d="M3 7h4l2-3h6l2 3h4v13H3Z"/><circle cx="12" cy="13" r="4"/></svg></button><button id="toggle-ui" class="icon-button" title="隐藏界面 · H" aria-label="隐藏界面"><svg viewBox="0 0 24 24"><path d="M3 8V3h5m8 0h5v5M3 16v5h5m8 0h5v-5"/></svg></button></div>
       </header>
